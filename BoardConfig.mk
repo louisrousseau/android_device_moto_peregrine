@@ -24,14 +24,14 @@
 -include device/motorola/msm8226-common/BoardConfigCommon.mk
 
 # inherit from the proprietary version
--include vendor/motorola/falcon/BoardConfigVendor.mk
+-include vendor/motorola/peregrine/BoardConfigVendor.mk
 
-LOCAL_PATH := device/motorola/falcon
+LOCAL_PATH := device/motorola/peregrine
 
 # Vendor Init
 TARGET_UNIFIED_DEVICE := true
 TARGET_INIT_VENDOR_LIB := libinit_msm
-TARGET_LIBINIT_DEFINES_FILE := device/motorola/falcon/init/init_falcon.c
+TARGET_LIBINIT_DEFINES_FILE := device/motorola/peregrine/init/init_peregrine.c
 
 #bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(LOCAL_PATH)/bluetooth
