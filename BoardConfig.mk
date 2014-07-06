@@ -38,6 +38,16 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(LOCAL_PATH)/bluetooth
 
 #TWRP
 DEVICE_RESOLUTION := 720x1280
+RECOVERY_SDCARD_ON_DATA := true
+BOARD_HAS_NO_REAL_SDCARD := false
+#These flags are somewhat deprecated in TWRP 2.5+ but they are still used for a few things.
+TW_INTERNAL_STORAGE_PATH := "/data/media"
+TW_INTERNAL_STORAGE_MOUNT_POINT := "data"
+TW_EXTERNAL_STORAGE_PATH := "/sdcard"
+TW_EXTERNAL_STORAGE_MOUNT_POINT := "sdcard"
+#TODO: Number needs to be confirmed...
+TW_CUSTOM_POWER_BUTTON := 107
+PRODUCT_COPY_FILES += device/motorola/peregrine/twrp.fstab:recovery/root/etc/twrp.fstab
 
 # userdata 8GB
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 8589934592
