@@ -43,9 +43,8 @@ BOARD_HAS_NO_REAL_SDCARD := false
 #These flags are somewhat deprecated in TWRP 2.5+ but they are still used for a few things.
 TW_INTERNAL_STORAGE_PATH := "/data/media"
 TW_INTERNAL_STORAGE_MOUNT_POINT := "data"
-TW_EXTERNAL_STORAGE_PATH := "/sdcard"
-TW_EXTERNAL_STORAGE_MOUNT_POINT := "sdcard"
-#TODO: Number needs to be confirmed...
+TW_EXTERNAL_STORAGE_PATH := "/sdcard1"
+TW_EXTERNAL_STORAGE_MOUNT_POINT := "sdcard1"
 TW_CUSTOM_POWER_BUTTON := 107
 PRODUCT_COPY_FILES += device/motorola/peregrine/twrp.fstab:recovery/root/etc/twrp.fstab
 
