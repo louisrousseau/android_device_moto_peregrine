@@ -1,3 +1,6 @@
+#
+# system.prop for peregrine
+#
 rild.libargs=-d /dev/smd0
 persist.rild.nitz_plmn=
 persist.rild.nitz_long_ons_0=
