@@ -27,7 +27,7 @@ DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 # Ramdisk
 PRODUCT_PACKAGES += \
-    fstab.qcom
+    fstab.peregrine
 
 # TWRP
 PRODUCT_COPY_FILES += \
