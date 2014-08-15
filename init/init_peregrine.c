@@ -43,8 +43,6 @@ void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *boar
     char radio[PROP_VALUE_MAX];
     char device[PROP_VALUE_MAX];
     char devicename[PROP_VALUE_MAX];
-//  char cdma_variant[92];
-//  FILE *fp;
     int rc;
 
     UNUSED(msm_id);
@@ -56,78 +54,63 @@ void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *boar
         return;
 
     property_get("ro.boot.radio", radio);
-    // falcon had falcon_1.img.gz, falcon_3.img.gz and falcon_6.img.gz for "Global", CDMA and AWS respectively, peregrine doesn't quite match this
-    // I'll comment out the CDMA stuff for now since there hasn't been anything released, but the /fsg partition has mention of Verizon and Sprint
-    /*    
-    fp = popen("/system/bin/ls -la /fsg/peregrine_3.img.gz | /system/xbin/cut -d '_' -f3", "r");
-    fgets(cdma_variant, sizeof(cdma_variant), fp);
-    pclose(fp);
-    */
+
     if (ISMATCH(radio, "0x1")) {
-        // XT1045
+        /* xt1045*/
         property_set("ro.product.device", "peregrine");
-        property_set("ro.product.model", "Moto G LTE");
+        property_set("ro.product.name", "peregrine_retus");
+        property_set("ro.product.model", "XT1045");
+        property_set("ro.product.display", "Moto G");
         property_set("ro.build.description", "peregrine_retus-user 4.4.3 KXB21.14-L1.23-4 1 release-keys");
         property_set("ro.build.fingerprint", "motorola/peregrine_retus/peregrine:4.4.3/KXB21.14-L1.23-4/1:user/release-keys");
         property_set("ro.mot.build.customerid", "retus");
         property_set("persist.radio.multisim.config", "");
-    } /* else if (ISMATCH(radio, "0x3")) {
-        // CDMA
-        ERROR("CDMA variant=%s", cdma_variant);
-        if (ISMATCH(cdma_variant, "verizon")) {
-            // xt1028
-            property_set("ro.product.device", "falcon_cdma");
-            property_set("ro.product.model", "Moto G");
-            property_set("ro.build.description", "falcon_verizon-user 4.3 14.10.0Q3.X-84-14 16 release-keys");
-            property_set("ro.build.fingerprint", "motorola/falcon_verizon/falcon_cdma:4.3/14.10.0Q3.X-84-14/16:user/release-keys");
-            property_set("persist.radio.multisim.config", "");
-            property_set("ro.mot.build.customerid", "verizon");
-            property_set("ro.cdma.home.operator.alpha", "Verizon");
-            property_set("ro.cdma.home.operator.numeric", "310004");
-            property_set("ro.com.google.clientidbase.ms", "android-verizon");
-            property_set("ro.com.google.clientidbase.am", "android-verizon");
-            property_set("ro.com.google.clientidbase.yt", "android-verizon");
-	    } else if (ISMATCH(cdma_variant, "sprint")) {
-			// xt1031
-            property_set("ro.product.device", "falcon_cdma");
-            property_set("ro.product.model", "Moto G");
-            property_set("ro.build.description", "falcon_sprint-user 4.3 14.10.0Q3.X-84-14 16 release-keys");
-            property_set("ro.build.fingerprint", "motorola/falcon_sprint/falcon_cdma:4.3/14.10.0Q3.X-84-14/16:user/release-keys");
-            property_set("persist.radio.multisim.config", "");
-            property_set("ro.mot.build.customerid", "sprint");
-        }
 
-        property_set("ro.telephony.default_network", "9");
-        property_set("ro.telephony.gsm-routes-us-smsc", "");
-        property_set("persist.radio.vrte_logic", "");
-        property_set("persist.radio.0x9e_not_callname", "");
-        property_set("persist.radio.skip_data_check", "");
-        property_set("persist.ril.max.crit.qmi.fails", "");
-        property_set("ro.cdma.home.operator.isnan", "");
-        property_set("ro.cdma.otaspnumschema", "");
-        property_set("ro.cdma.data_retry_config", "");
-        property_set("ro.gsm.data_retry_config", "");
-
-    } */
-
-    /* To be completed with sections for the: 
-     * XT1039 (Europe)
-     * XT1040 (Brasil) 
-     * and other HSPA/LTE variants that might appear
-     * 
-     * Leaving XT1034 as reference
-     */
-
-/*    else if (ISMATCH(radio, "0x6")) {
-        // XT1034
-        property_set("ro.product.device", "falcon_umts");
-        property_set("ro.product.model", "Moto G");
-        property_set("ro.build.description", "falcon_retuaws-user 4.4.2 KXB20.9-1.8-1.4 4 release-keys");
-        property_set("ro.build.fingerprint", "motorola/falcon_retuaws/falcon_umts:4.4.2/KXB20.9-1.8-1.4/4:user/release-keys");
-        property_set("ro.mot.build.customerid", "retusa_aws");
+    } else if (ISMATCH(radio, "0x3")) {
+        /* xt1039 */
+        property_set("ro.product.device", "peregrine");
+        property_set("ro.product.name", "peregrine_retbr");
+        property_set("ro.product.model", "XT1039");
+        property_set("ro.product.display", "Moto G");
+        property_set("ro.build.description", "peregrine_retbr-user 4.4.3 KXB21.14-L1.23-4 5 release-keys");
+        property_set("ro.build.fingerprint", "motorola/peregrine_retbr/peregrine:4.4.3/KXB21.14-L1.23-4/5:user/release-keys");
+        property_set("ro.mot.build.customerid", "retbr");
         property_set("persist.radio.multisim.config", "");
-    } */
+
+    } else if (ISMATCH(radio, "0x5")) {
+        /*xt1042 */
+        property_set("ro.product.device", "peregrine");
+        property_set("ro.product.name", "peregrine_usc");
+        property_set("ro.product.model", "XT1042");
+        property_set("ro.product.display", "Moto G");
+        property_set("ro.build.description", "peregrine_usc-user 4.4.4 KXB21.14-L1.41 41 release-keys");
+        property_set("ro.build.fingerprint", "motorola/peregrine_usc/peregrine:4.4.4/KXB21.14-L1.41/41:user/release-keys");
+        property_set("persist.radio.multisim.config", "");
+        property_set("ro.mot.build.customerid ","usc");
+        property_set("telephony.lteOnCdmaDevice","1");
+        property_set("persist.radio.vrte_logic", "2");
+        property_set("persist.radio.0x9e_not_callname", "1");
+        property_set("persist.radio.skip_data_check", "1");
+        property_set("persist.ril.max.crit.qmi.fails", "4");
+        property_set("ro.cdma.data_retry_config", "max_retries=infinite,0,0,10000,10000,100000,10000,10000,10000,10000,140000,540000,960000");
+        property_set("ro.gsm.data_retry_config", "default_randomization=2000,max_retries=infinite,1000,1000,80000,125000,485000,905000");
+        property_set("ro.com.google.clientidbase.ms", "android-uscellular-us");
+        property_set("ro.com.google.clientidbase.am", "android-uscellular-us");
+        property_set("ro.com.google.clientidbase.yt", "android-motorola");
+
+     } else if (ISMATCH(radio, "0x7")) {
+        /* xt1040 */
+        property_set("ro.product.device", "peregrine");
+        property_set("ro.product.name", "peregrine_reteu");
+        property_set("ro.product.model", "XT1040");
+        property_set("ro.product.display", "Moto G");
+        property_set("ro.build.description", "peregrine_reteu-user 4.4.4 KXB21.14-L1.46 42 release-keys");
+        property_set("ro.build.fingerprint", "motorola/peregrine_reteu/peregrine:4.4.4/KXB21.14-L1.46/42:user/release-keys");
+        property_set("ro.mot.build.customerid", "reteuall");
+        property_set("persist.radio.multisim.config", "");
+    }
+
     property_get("ro.product.device", device);
     strlcpy(devicename, device, sizeof(devicename));
-    ERROR("Found radio id %s setting build properties for %s device\n", radio, devicename);
+    INFO("Found radio id %s setting build properties for %s device\n", radio, devicename);
 }
