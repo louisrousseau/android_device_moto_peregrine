@@ -13,28 +13,28 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-#
-# This file sets variables that control the way modules are built
-# thorughout the system. It should not be used to conditionally
-# disable makefiles (the proper mechanism to control what gets
-# included in a build is to use PRODUCT_PACKAGES in a product
-# definition file).
-#
-
+# inherit from common msm8226-common
 -include device/motorola/msm8226-common/BoardConfigCommon.mk
-
-# inherit from the proprietary version
--include vendor/motorola/peregrine/BoardConfigVendor.mk
 
 LOCAL_PATH := device/motorola/peregrine
 
-# Vendor Init
+# Vendor Unification Init
 TARGET_UNIFIED_DEVICE := true
 TARGET_INIT_VENDOR_LIB := libinit_msm
 TARGET_LIBINIT_DEFINES_FILE := device/motorola/peregrine/init/init_peregrine.c
 
-#bluetooth
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(LOCAL_PATH)/bluetooth
+# Kernel
+BOARD_CUSTOM_BOOTIMG_MK := $(LOCAL_PATH)/mkbootimg.mk
+TARGET_KERNEL_CONFIG := msm8926_mmi_defconfig
+
+# Partitions
+BOARD_BOOTIMAGE_PARTITION_SIZE := 10485760
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 10485760
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1023410176
+BOARD_USERDATAIMAGE_PARTITION_SIZE := 5930614784
+
+# Recovery
+TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/rootdir/etc/fstab.qcom
 
 #TWRP
 DEVICE_RESOLUTION := 720x1280
@@ -50,5 +50,5 @@ TW_EXTERNAL_STORAGE_MOUNT_POINT := "external_sd"
 TW_CUSTOM_POWER_BUTTON := 107
 PRODUCT_COPY_FILES += device/motorola/peregrine/twrp.fstab:recovery/root/etc/twrp.fstab
 
-# userdata 8GB
-BOARD_USERDATAIMAGE_PARTITION_SIZE := 8589934592
+# inherit from the proprietary version
+-include vendor/motorola/peregrine/BoardConfigVendor.mk
