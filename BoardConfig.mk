@@ -14,14 +14,14 @@
 # limitations under the License.
 
 # inherit from common msm8226-common
--include device/motorola/msm8226-common/BoardConfigCommon.mk
+-include device/moto/msm8226-common/BoardConfigCommon.mk
 
-LOCAL_PATH := device/motorola/peregrine
+LOCAL_PATH := device/moto/peregrine
 
 # Vendor Unification Init
 TARGET_UNIFIED_DEVICE := true
 TARGET_INIT_VENDOR_LIB := libinit_msm
-TARGET_LIBINIT_DEFINES_FILE := device/motorola/peregrine/init/init_peregrine.c
+TARGET_LIBINIT_DEFINES_FILE := device/moto/peregrine/init/init_peregrine.c
 
 # Kernel
 BOARD_CUSTOM_BOOTIMG_MK := $(LOCAL_PATH)/mkbootimg.mk
@@ -48,7 +48,7 @@ TW_EXTERNAL_STORAGE_MOUNT_POINT := "external_sd"
 #TW_EXTERNAL_STORAGE_PATH := "/sdcard1"
 #TW_EXTERNAL_STORAGE_MOUNT_POINT := "sdcard1"
 TW_CUSTOM_POWER_BUTTON := 107
-PRODUCT_COPY_FILES += device/motorola/peregrine/twrp.fstab:recovery/root/etc/twrp.fstab
+PRODUCT_COPY_FILES += device/moto/peregrine/twrp.fstab:recovery/root/etc/twrp.fstab
 
 # inherit from the proprietary version
 -include vendor/motorola/peregrine/BoardConfigVendor.mk
