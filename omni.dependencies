@@ -1,4 +1,5 @@
-
+[
+  {
     "repository": "android_device_moto_qcom-common",
     "target_path": "device/moto/qcom-common",
     "revision": "android-6.0"
