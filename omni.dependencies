@@ -30,7 +30,7 @@
     "revision": "android-6.0"
   },
   {
-    "remote": "omnirom",
+    "remote": "louisrousseau",
     "repository": "android_device_moto_msm8226-common",
     "target_path": "device/moto/msm8226-common",
     "revision": "android-6.0"
