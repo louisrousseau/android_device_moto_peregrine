@@ -21,7 +21,7 @@ LOCAL_PATH := device/moto/peregrine
 # Vendor Unification Init
 TARGET_UNIFIED_DEVICE := true
 TARGET_INIT_VENDOR_LIB := libinit_msm
-TARGET_LIBINIT_DEFINES_FILE := device/moto/peregrine/init/init_peregrine.c
+TARGET_LIBINIT_DEFINES_FILE := device/moto/peregrine/init/init_peregrine.cpp
 
 
 # Kernel
