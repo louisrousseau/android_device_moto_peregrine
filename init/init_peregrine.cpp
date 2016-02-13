@@ -38,7 +38,7 @@
 #include "init_msm.h"
 
 void gsm_properties();
-void cdma_properties(char cdma_sub[]);
+void cdma_properties(const char *cdma_sub);
 
 void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *board_type)
 {
