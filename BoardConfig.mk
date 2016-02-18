@@ -47,13 +47,21 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 5930614784
 
 # Recovery
 TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/rootdir/etc/fstab.qcom
+TARGET_USERIMAGES_USE_EXT4 := true
+TARGET_USERIMAGES_USE_F2FS := true
 
+# Override ramdisk creation to use compression + DTB
 BOARD_CUSTOM_BOOTIMG_MK := device/moto/peregrine/custombootimg.mk
 
-#TWRP
+# TWRP
 DEVICE_RESOLUTION := 720x1280
 RECOVERY_SDCARD_ON_DATA := true
-BOARD_HAS_NO_REAL_SDCARD := false
+BOARD_HAS_NO_REAL_SDCARD := false # Removes sdcard partitioning capabilities from TWRP for ramdisk size considerations.
+TW_DEFAULT_EXTERNAL_STORAGE := true
+TW_EXCLUDE_SUPERSU := true
+#TW_INCLUDE_CRYPTO := true #TODO
+TW_INCLUDE_NTFS_3G := true
+TW_THEME := portrait_hdpi
 TW_CUSTOM_POWER_BUTTON := 107
 PRODUCT_COPY_FILES += device/moto/peregrine/twrp.fstab:recovery/root/etc/twrp.fstab
 
