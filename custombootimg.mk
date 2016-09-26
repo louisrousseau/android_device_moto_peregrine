@@ -35,7 +35,7 @@ $(INSTALLED_DTIMAGE_TARGET): $(DTBTOOL) $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/u
 	$(hide) $(DTBTOOL) -o $(INSTALLED_DTIMAGE_TARGET) -s $(BOARD_KERNEL_PAGESIZE) -p $(KERNEL_OUT)/scripts/dtc/ $(KERNEL_OUT)/arch/arm/boot/
 	@echo -e ${CL_CYN}"Made DT image: $@"${CL_RST}
 
-LZMA_BIN := $(shell which lzma)
+#LZMA_BIN := $(shell which lzma)
 
 ## Overload bootimg generation: Same as the original, + --dt (device tree) argument
 $(INSTALLED_BOOTIMAGE_TARGET): $(MKBOOTIMG) $(INTERNAL_BOOTIMAGE_FILES) $(INSTALLED_DTIMAGE_TARGET)
@@ -48,10 +48,6 @@ $(INSTALLED_BOOTIMAGE_TARGET): $(MKBOOTIMG) $(INTERNAL_BOOTIMAGE_FILES) $(INSTAL
 $(INSTALLED_RECOVERYIMAGE_TARGET): $(MKBOOTIMG) $(INSTALLED_DTIMAGE_TARGET) \
 		$(recovery_ramdisk) \
 		$(recovery_kernel)
-	@echo -e ${CL_CYN}"----- Compressing recovery ramdisk with lzma ------"${CL_RST}
-	rm -f $(recovery_uncompressed_ramdisk).lzma
-	$(LZMA_BIN) $(recovery_uncompressed_ramdisk)
-	$(hide) cp $(recovery_uncompressed_ramdisk).lzma $(recovery_ramdisk)
 	@echo -e ${CL_CYN}"----- Making recovery image ------"${CL_RST}
 	$(hide) $(MKBOOTIMG) $(INTERNAL_RECOVERYIMAGE_ARGS) $(BOARD_MKBOOTIMG_ARGS) --dt $(INSTALLED_DTIMAGE_TARGET) --output $@
 	$(hide) $(call assert-max-image-size,$@,$(BOARD_RECOVERYIMAGE_PARTITION_SIZE),raw)

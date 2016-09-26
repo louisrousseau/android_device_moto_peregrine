@@ -47,11 +47,14 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 5930614784
 BOARD_CACHEIMAGE_PARTITION_SIZE := 560070656
 
 # Recovery
-TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/rootdir/etc/fstab.qcom
+TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/fstab.qcom
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 
-# Override ramdisk creation to use compression + DTB
+# Use LZMA instead of GZIP
+BOARD_NEEDS_LZMA_MINIGZIP := true
+
+# Override ramdisk creation to use DTB
 BOARD_CUSTOM_BOOTIMG_MK := device/moto/peregrine/custombootimg.mk
 
 # TWRP
