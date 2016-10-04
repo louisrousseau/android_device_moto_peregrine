@@ -14,23 +14,29 @@
 # limitations under the License.
 #
 
-# Inherit base AOSP device configuration
-$(call inherit-product, device/moto/peregrine/aosp_peregrine.mk)
+# Sample: This is where we'd set a backup provider if we had one
+# $(call inherit-product, device/sample/products/backup_overlay.mk)
 
-# Inherit APNs list
-$(call inherit-product, vendor/omni/config/gsm.mk)
+# Get the long list of APNs
+# PRODUCT_COPY_FILES := device/sample/etc/apns-full-conf.xml:system/etc/apns-conf.xml
 
-# Inherit from our omni product configuration
-$(call inherit-product, vendor/omni/config/common.mk)
+# Inherit from the common Open Source product configuration
+$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 
-# Bootanimation
-TARGET_BOOTANIMATION_SIZE := 720x480
+PRODUCT_DEVICE := peregrine
 
-# Override product naming for Omni
-PRODUCT_NAME := omni_peregrine
+PRODUCT_NAME := aosp_peregrine
 PRODUCT_BRAND := motorola
 PRODUCT_MODEL := Moto G LTE (1st generation, peregrine)
 PRODUCT_MANUFACTURER := motorola
-PRODUCT_RESTRICT_VENDOR_FILES := false
+PRODUCT_RESTRICT_VENDOR_FILES := true
 
-$(call inherit-product, vendor/motorola/peregrine/peregrine-vendor.mk)
+# Inherit from msm8226-common
+$(call inherit-product, device/moto/msm8226-common/msm8226.mk)
+
+$(call inherit-product, device/moto/peregrine/device.mk)
+
+PRODUCT_NAME := aosp_peregrine
+
+PRODUCT_PACKAGES += \
+    Launcher3
