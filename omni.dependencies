@@ -1,11 +1,5 @@
 [
   {
-    "remote": "omnirom",
-    "repository": "android_hardware_qcom_display",
-    "target_path": "hardware/qcom/display",
-    "revision": "android-7.1"
-  },
-  {
     "remote": "louisrousseau",
     "repository": "android_hardware_qcom_audio-caf-msm8226",
     "target_path": "hardware/qcom/audio-caf-msm8226",
@@ -25,18 +19,6 @@
   },
   {
     "remote": "omnirom",
-    "repository": "android_hardware_qcom_audio",
-    "target_path": "hardware/qcom/audio",
-    "revision": "android-7.1"
-  },
-  {
-    "remote": "omnirom",
-    "repository": "android_hardware_qcom_media",
-    "target_path": "hardware/qcom/media",
-    "revision": "android-7.1"
-  },
-  {
-    "remote": "omnirom",
     "repository": "android_device_qcom_caf-sepolicy",
     "target_path": "device/qcom/sepolicy",
     "revision": "android-7.1"
@@ -52,18 +34,6 @@
     "repository": "android_kernel_moto_msm8226",
     "target_path": "kernel/moto/msm8226",
     "revision": "android-7.1"
-  },
-  {
-    "remote": "omnirom",
-    "repository": "android_device_moto_qcom-common",
-    "target_path": "device/moto/qcom-common",
-    "revision": "android-6.0"
-  },
-  {
-    "remote": "omnirom",
-    "repository": "android_device_qcom_common",
-    "target_path": "device/qcom/common",
-    "revision": "android-6.0"
   },
   {
     "remote": "omnirom",
