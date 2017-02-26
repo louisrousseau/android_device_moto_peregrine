@@ -52,11 +52,11 @@ void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *boar
     UNUSED(msm_ver);
     UNUSED(board_type);
 
-    rc = property_get("ro.board.platform", platform);
+    rc = property_get("ro.board.platform", platform, "msm8226");
     if (!rc || !ISMATCH(platform, ANDROID_TARGET))
         return;
 
-    property_get("ro.boot.radio", radio);
+    property_get("ro.boot.radio", radio, 0x1);
 
     if (ISMATCH(radio, "0x1")) {
         /* XT1045 - United States HSPA+LTE */
@@ -121,7 +121,7 @@ void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *boar
         property_set("persist.radio.multisim.config", "");
     }
 
-    property_get("ro.product.device", device);
+    property_get("ro.product.device", device, "peregrine");
     strlcpy(devicename, device, sizeof(devicename));
     INFO("Found radio id %s setting build properties for %s device\n", radio, devicename);
 }
