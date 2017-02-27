@@ -31,6 +31,7 @@
 #include <stdio.h>
 
 #include "vendor_init.h"
+#include "cutils/properties.h"
 #include "property_service.h"
 #include "log.h"
 #include "util.h"
@@ -56,7 +57,7 @@ void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *boar
     if (!rc || !ISMATCH(platform, ANDROID_TARGET))
         return;
 
-    property_get("ro.boot.radio", radio, 0x1);
+    property_get("ro.boot.radio", radio, "0x1");
 
     if (ISMATCH(radio, "0x1")) {
         /* XT1045 - United States HSPA+LTE */
