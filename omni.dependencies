@@ -27,31 +27,13 @@
     "remote": "louisrousseau",
     "repository": "android_device_moto_msm8226-common",
     "target_path": "device/moto/msm8226-common",
-    "revision": "android-6.0"
+    "revision": "android-7.1"
   },
   {
     "remote": "louisrousseau",
     "repository": "android_kernel_moto_msm8226",
     "target_path": "kernel/moto/msm8226",
     "revision": "android-7.1"
-  },
-  {
-    "remote": "omnirom",
-    "repository": "android_frameworks_av",
-    "target_path": "frameworks/av-caf",
-    "revision": "android-6.0-caf"
-  },
-  {
-    "remote": "omnirom",
-    "repository": "android_frameworks_native",
-    "target_path": "frameworks/native-caf",
-    "revision": "android-6.0-caf"
-  },
-  {
-    "remote": "omnirom",
-    "repository": "android_hardware_ril",
-    "target_path": "hardware/ril-caf",
-    "revision": "android-6.0-caf"
   },
   {
     "remote": "omnirom",
