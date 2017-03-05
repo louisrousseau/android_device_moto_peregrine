@@ -62,7 +62,6 @@ BOARD_CUSTOM_BOOTIMG_MK := device/moto/peregrine/custombootimg.mk
 # TWRP
 DEVICE_RESOLUTION := 720x1280
 RECOVERY_SDCARD_ON_DATA := true
-BOARD_HAS_NO_REAL_SDCARD := false # Removes sdcard partitioning capabilities from TWRP for ramdisk size considerations.
 TW_DEFAULT_EXTERNAL_STORAGE := true
 TW_EXCLUDE_SUPERSU := true
 TW_INCLUDE_CRYPTO := true
