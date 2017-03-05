@@ -53,8 +53,8 @@ TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/fstab.qcom
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 
-# Use LZMA instead of GZIP
-BOARD_NEEDS_LZMA_MINIGZIP := true
+# Use XZ instead of GZIP
+XZ_RAMDISK_TARGETS := recovery
 
 # Override ramdisk creation to use DTB
 BOARD_CUSTOM_BOOTIMG_MK := device/moto/peregrine/custombootimg.mk
