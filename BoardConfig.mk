@@ -65,6 +65,7 @@ RECOVERY_SDCARD_ON_DATA := true
 BOARD_HAS_NO_REAL_SDCARD := false # Removes sdcard partitioning capabilities from TWRP for ramdisk size considerations.
 TW_DEFAULT_EXTERNAL_STORAGE := true
 TW_EXCLUDE_SUPERSU := true
+TW_INCLUDE_CRYPTO := true
 #TW_INCLUDE_CRYPTO := true #TODO
 #TW_INCLUDE_L_CRYPTO := true
 TW_THEME := portrait_hdpi
