@@ -57,7 +57,7 @@ TARGET_USERIMAGES_USE_F2FS := true
 XZ_RAMDISK_TARGETS := recovery
 
 # Override ramdisk creation to use DTB
-BOARD_CUSTOM_BOOTIMG_MK := device/moto/peregrine/custombootimg.mk
+# BOARD_CUSTOM_BOOTIMG_MK := device/moto/peregrine/custombootimg.mk
 
 # TWRP
 DEVICE_RESOLUTION := 720x1280
